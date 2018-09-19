@@ -1,0 +1,7 @@
+static-pages:
+    home: {  }
+    services:
+        services-seo: {  }
+        services-smm: {  }
+    about: {  }
+    contacts: {  }

@@ -1,0 +1,45 @@
+[viewBag]
+
+[staticMenu top_menu]
+code = "top_menu"
+==
+<header class="page-head header-corporate">
+  <div class="rd-navbar-wrap">
+    <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-lg-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-sm-stick-up-offset="50px" data-md-stick-up-offset="150px" data-lg-stick-up-offset="150px">
+      <div class="top-panel clearfix">
+        <ul class="list-inline">
+          <li><a href="{{facebook}}" class="fa-facebook icon icon-blue icon-xs-square"></a></li>
+          <li><a href="{{twitter}}" class="fa-twitter icon icon-blue icon-xs-square"></a></li>
+        </ul>
+        <div class="contact-info">
+          <div class="telephone"><span class="icon icon-emerland icon-sm mdi-phone"></span><a href="callto:#">{{phone}}</a></div>
+          <address class="address"><span class="icon icon-emerland icon-sm mdi-map-marker"></span>
+            <div class="link-block text-middle"><a href="#">{{address}}</a></div>
+          </address>
+          <div class="mail"><span class="icon icon-emerland icon-sm mdi-email-outline"></span><a href="mailto:#">{{email}}</a></div>
+        </div>
+      </div>
+      <div class="rd-navbar-inner">
+        <div class="rd-navbar-wrap">
+          <div class="rd-navbar-telephone"><span class="icon icon-emerland icon-sm mdi-phone text-middle"></span> <a href="callto:#" class="text-middle">{{phone}}</a>
+          </div>
+          <div class="rd-navbar-panel">
+            <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+            <div class="rd-navbar-brand"><a href="index.html" class="brand-name"><span class="brand-slogan">Marketing and SEO agency</span><span>se</span><span class="letter">o</span><span>agent</span></a></div>
+          </div>
+          <div class="rd-navbar-nav-wrap">
+            <div class="rd-navbar-brand brand-fixed"><a href="index.html" class="brand-name"><span class="brand-slogan">Marketing and SEO agency</span><span>se</span><span class="letter">o</span><span>agent</span></a></div>
+            {% partial 'top_menu' items=top_menu.menuItems %}
+            <form action="search-results.html" method="GET" data-search-live="rd-search-results-live" class="rd-search rd-navbar-search rd-navbar-search-sm">
+              <div class="form-group">
+                <input id="rd-search-form-input" type="text" name="s" autocomplete="off" placeholder="Search" class="form-control">
+                <button type="submit" class="icon fa-search icon-gray-dark"></button>
+              </div>
+              <div id="rd-search-results-live" class="rd-search-results-live"></div>
+            </form><span data-rd-navbar-toggle=".rd-navbar-search-sm" data-custom-toggle-disable-on-blur="true" class="icon icon-xs icon-darker rd-navbar-search-toggle"></span>
+          </div><a href="analysis.html" class="btn btn-primary btn-xs-2 btn-shadow btn-rect btn-icon btn-icon-left"><span class="icon icon-xs mdi-chart-bar"></span><span>Free Site Analysis</span></a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

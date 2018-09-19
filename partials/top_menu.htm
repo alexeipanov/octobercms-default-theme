@@ -1,0 +1,20 @@
+[viewBag]
+==
+<ul class="rd-navbar-nav">
+  {% for item in items %}
+    {% if item.items %}
+      <li class="{{ item.isChildActive ? 'active' : '' }}">
+        <a href="#">{{ item.title }}</a>
+        <ul class="rd-navbar-dropdown">
+          {% for item in item.items %}
+            <li><a href="{{ item.url }}" class="{{ item.isActive or item.isChildActive ? 'active' : '' }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% else %}
+      <li class="{{ item.isActive ? 'active' : '' }}">
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,47 @@
+[staticPage]
+useContent = 1
+default = 0
+
+[SiteConfig]
+
+[staticBreadcrumbs breadcrumbs]
+
+[contactForm]
+==
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+  <head>
+    <title>{{ this.page.title }}</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ 'assets/images/favicon.ico'|theme }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Istok+Web:400,700italic,700,400italic%7CMontserrat:400,700">
+    <link rel="stylesheet" href="{{ 'assets/css/style.css'|theme }}">
+    {% styles %}
+  </head>
+  <body>
+    <div class="page">
+      {% partial 'header' %}
+      <main class="page-content">
+        <section class="bg-breadcrumbs text-center text-sm-left txt-white section-sm-55 section-15">
+          <div class="shell">
+            {% if not (this.page.url == '/') %}
+              <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                  {% partial 'breadcrumbs' items=breadcrumbs %}
+              </ol>
+            {% endif %}
+            <h1 class="offset-top-20">{{ this.page.title }}</h1>
+          </div>
+        </section>
+        {% page %}
+      </main>
+      {% partial 'footer' %}
+    </div>
+    <script src="{{ 'assets/js/core.min.js'|theme }}"></script>
+    <script src="{{ 'assets/js/script.js'|theme }}"></script>
+    {% framework extras %}
+    {% scripts %}
+  </body>
+</html>
