@@ -1,0 +1,370 @@
+.faq {
+
+  h3 {
+    color: _color(base-link);
+  }
+}
+
+ul.breadcrumbs {
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  li {
+
+    &:before {
+      content: '';
+      background-image: var(--circle);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100%;
+      width: 1em;
+      display: block;
+      float: left;
+      margin: 0 _size(margin) * .5;
+    }
+
+    &:first-child {
+
+      &:before {
+        content: none;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &.angle li:before {
+    background-image: var(--angle-right);
+  }
+
+  &.triangle li:before {
+    background-image: var(--chevron-right);
+  }
+
+  &.slash li:before {
+    background-image: var(--slash);
+  }
+}
+
+.modal {
+
+  .background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    background-image: url('../img/dots.svg');
+    opacity: 0;
+  }
+
+  &.open {
+
+    .background {
+      display: flex;
+      animation: opacity-1 _duration(default) _misc(animation);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.close {
+
+    .background {
+      display: flex;
+      animation: opacity-0 _duration(default) _misc(animation);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.hidden {
+
+    .background {
+      display: none !important;
+    }
+  }
+
+  .window {
+    position: relative;
+    padding: _size(padding) * .5 _size(padding) * 2 _size(padding) * 2;
+    background-color: _color(base-bg);
+    max-width: 40rem;
+    box-shadow: 3px 3px 5px _color(dark-color);
+  }
+
+  .header {
+    text-transform: uppercase;
+    font-size: _size(element) * 2;
+    font-weight: 700;
+    border-bottom: 1px solid lighten(_color(theme), 25%);
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: var(--times);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1rem;
+    width: 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+
+  .buttons {
+
+  }
+
+  .content {
+    padding: _size(padding) 0;
+  }
+}
+
+.notification {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: _color(accent);
+  color: _color(base-inverted);
+  animation: up _duration(default) _misc(animation);
+  animation-fill-mode: forwards;
+
+  &.hidden {
+    display: none !important;
+  }
+
+  &.open {
+    display: flex;
+    animation: down _duration(default) _misc(animation);
+    animation-fill-mode: forwards;
+  }
+
+  p {
+    margin: _size(margin) * .5;
+    align-self: center;
+    flex-grow: 9999;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: _size(padding) * .5;
+    background-image: var(--times);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1rem;
+    width: 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+}
+
+@keyframes opacity-0 {
+
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity-1 {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes down {
+
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes up {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+progress {
+  background-color: _color(theme-bg);
+  width: 100%;
+  height: _size(element) * .5;
+  border: none;
+
+  &::-moz-progress-bar {
+    background-color: _color(theme);
+  }
+
+  &::-webkit-progress-bar {
+    background-color: _color(theme-bg);
+  }
+
+  &::-webkit-progress-value {
+    background-color: _color(theme);
+  }
+
+  &.stripe {
+
+    &::-moz-progress-bar {
+      background-size: _size(element) _size(element);
+      background-image: linear-gradient(-45deg, _color(theme-bg) 25%, _color(theme) 25%, _color(theme) 50%, _color(theme-bg) 50%, _color(theme-bg) 75%, _color(theme) 75%, _color(theme));
+    }
+
+    &::-webkit-progress-bar {
+      background-color: _color(theme-bg);
+    }
+
+    &::-webkit-progress-value {
+      background-size: _size(element) _size(element);
+      background-image: linear-gradient(-45deg, _color(theme-bg) 25%, _color(theme) 25%, _color(theme) 50%, _color(theme-bg) 50%, _color(theme-bg) 75%, _color(theme) 75%, _color(theme));
+    }
+  }
+
+  &.thin {
+    height: 3px;
+    background-color: _color(theme-bg);
+
+    &::-moz-progress-bar {
+      background-color: _color(theme);
+    }
+
+    &::-webkit-progress-bar {
+      background-color: _color(theme-bg);
+    }
+
+    &::-webkit-progress-value {
+      background-color: _color(theme);
+    }
+  }
+}
+
+section.photobg {
+  color: _color(base-inverted);
+  background-image: url('../img/bgs/gleb-kozenko-262704.jpg');
+  background-size: cover;
+}
+
+section {
+
+  .scroll-button {
+    width: _size(element) * 1.5;
+    height: _size(element) * 1.5;
+    background-color: rgba(_color(theme), .5);
+    border-radius: _size(element) * 2.5;
+    padding: _size(padding) * .5;
+    margin-top: _size(margin) * 2;
+    border: 5px solid rgba(_color(base-bg), 0.5);
+    box-shadow: 0 0 2px rgba(0, 160, 255, 0.25);
+    color: _color(base-bg);
+    transition: opacity _duration(hover) ease, background-color _duration(hover) ease;
+    cursor: pointer;
+    opacity: 0;
+
+    &:hover {
+      background-color: rgba(0, 160, 255, 0.75);
+    }
+  }
+
+  &:hover {
+    .scroll-button {
+      opacity: 1;
+    }
+  }
+}
+
+.tab-area {
+  display: flex;
+  flex-direction: column;
+
+  .tabs {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: _size(margin);
+    justify-content: flex-start;
+
+    &.center {
+      justify-content: flex-start;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+
+    a {
+      display: block;
+      padding: _size(padding) * 0.25 _size(padding);
+      text-decoration: none;
+      border-bottom: 3px solid _color(theme-bg);
+      outline: none;
+      color: _color(base-color);
+      transition: border-bottom-color _duration(hover) ease;
+
+      &.active {
+        border-bottom: 3px solid _color(theme);
+      }
+    }
+  }
+
+  .tab {
+    display: none;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &.vertical {
+    flex-direction: row;
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      margin-right: _size(margin);
+      justify-content: flex-start;
+
+      a {
+        border-right: 3px solid _color(theme-bg);
+        border-bottom: unset;
+        outline: none;
+        color: _color(base-color);
+        transition: border-right-color _duration(hover) ease;
+
+        &.active {
+          border-right: 3px solid _color(theme);
+          border-bottom: unset;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,174 @@
+body, header, footer, main, section {
+  display: grid;
+}
+
+body {
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(_size(element), auto) 1fr minmax(_size(element), auto);
+  min-height: 100vh;
+}
+
+
+main {
+  grid-template-rows: minmax(0, auto) 1fr;
+}
+
+header,
+footer,
+main nav {
+  padding: _size(padding) * .5 _size(padding);
+}
+
+section {
+  padding: _size(padding) * 2 _size(padding);
+
+  &.center {
+    justify-items: center;
+  }
+
+  &.mist {
+    background-color: _color(dark-bg);
+  }
+
+  &.map {
+    padding: 0;
+  }
+}
+
+.intro {
+  background-image: url('../img/bgs/courtney-corlew-472715.jpg');
+  background-size: cover;
+}
+
+.image-grid {
+  grid-template-columns: repeat(4, minmax(calc((100vw - #{_size(element)} * 2) / 4 - #{_size(element)}), 1fr));
+  grid-auto-rows: 250px;
+  padding: _size(padding) * 0;
+
+  img {
+    object-fit: cover;
+    justify-self: stretch;
+    align-self: stretch;
+  }
+}
+
+.x12 {
+  grid-auto-columns: calc((100vw - #{_size(element)} * 2) / 12 - #{_size(element)});
+  grid-auto-rows: minmax(_size(element), auto);
+  grid-gap: _size(element) * .5;
+  justify-content: space-between;
+  align-items: start;
+
+  &.center {
+    justify-content: center;
+  }
+}
+
+.columns-3 {
+  display: grid;
+  grid-template-columns: repeat(3, calc((100vw - #{_size(element)} * 2) / 6 + #{_size(element)} * 2));
+  grid-template-rows: 1fr;
+  grid-gap: _size(element) * 4;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.columns-2 {
+  display: grid;
+  grid-template-columns: repeat(2, calc((100vw - #{_size(element)} * 2) / 4 + #{_size(element)} * 5));
+  grid-template-rows: 1fr;
+  grid-gap: _size(element) * 4;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: calc((100vw - #{_size(element)} * 2) / 2 + #{_size(element)} * 14);
+  grid-template-rows: 1fr;
+  grid-gap: _size(element) * 4;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.logo {
+  grid-column: 1 / 5;
+}
+
+.account {
+  grid-column: 5 / 13;
+  justify-self: end;
+}
+
+.copyright {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+}
+
+.social {
+  grid-column: 10 / 13;
+  grid-row: 1 / 2;
+}
+
+.footer-menu {
+  grid-column: 4 / 10;
+  grid-row: 1 / 3;
+}
+
+.subscribe {
+  grid-column: 10 / 13;
+  grid-row: 2 / 3;
+}
+
+@media (max-width: 768px) {
+  .image-grid {
+    grid-template-columns: repeat(2, minmax(calc((100vw - #{_size(element)} * 2) / 2 - #{_size(element)}), 1fr));
+    grid-auto-rows: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  main nav {
+    padding: 0;
+  }
+
+  .logo {
+    grid-column: 1 / 13;
+    justify-self: center;
+  }
+
+  .account {
+    grid-column: 1 / 13;
+    justify-self: end;
+  }
+
+  .copyright {
+    grid-column: 1 / 13;
+    grid-row: 3 / 4;
+  }
+
+  .social {
+    grid-column: 10 / 13;
+    grid-row: 2 / 3;
+  }
+
+  .footer-menu {
+    grid-column: 1 / 13;
+    grid-row: 1 / 2;
+  }
+
+  .image-grid {
+    grid-template-columns: repeat(1, minmax(calc((100vw - #{_size(element)} * 2) - #{_size(element)}), 1fr));
+    grid-auto-rows: 250px;
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: calc((100vw - #{_size(element)} * 2));
+    grid-template-rows: 1fr;
+    grid-gap: _size(element) * 2;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+}

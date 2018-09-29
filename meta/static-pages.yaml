@@ -5,3 +5,4 @@ static-pages:
         services-smm: {  }
     about: {  }
     contacts: {  }
+    404: {  }

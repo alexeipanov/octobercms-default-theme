@@ -1,0 +1,13 @@
+title = "robots"
+url = "/robots.txt"
+is_hidden = 0
+==
+<?php
+function onStart() {
+  $content = $this->page->markup;
+  return Response::make($content)->header('Content-Type', 'text/plain');
+}
+?>
+==
+User-agent: *
+Allow: /

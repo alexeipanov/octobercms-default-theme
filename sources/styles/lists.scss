@@ -1,0 +1,51 @@
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+
+    &:before {
+      content: '.';
+      background-image: var(--circle);
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: left center;
+      height: 100%;
+      width: 1em;
+      display: block;
+      float: left;
+      color: transparent;
+    }
+  }
+
+  &.check li:before {
+    background-image: var(--check);
+  }
+
+  &.square li:before{
+    background-image: var(--square-full);
+  }
+
+  &.plus li:before {
+    background-image: var(--plus);
+  }
+
+  &.minus li:before {
+    background-image: var(--minus);
+  }
+
+  &.asterisk li:before {
+    background-image: var(--asterisk);
+  }
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,154 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  input, textarea {
+    flex-grow: 99;
+    padding: _size(element) * .5;
+    margin: _size(margin) * .5 0;
+    border: 1px solid _color(border);
+    border-radius: _size(radius);
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 300;
+    color: _color(text-base);
+    transition: border-color _duration(hover) ease;
+
+    &:focus {
+      border-color: _color(theme);
+    }
+
+
+    &.error {
+      border-color: _color(error);
+    }
+  }
+
+  textarea {
+    height: _size(element) * 6;
+  }
+
+  &.inline {
+    flex-direction: row;
+
+    input {
+      margin: 0 _size(margin) * .5 0 0;
+    }
+  }
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  color: _color(footer-bg);
+  background-color: _color(theme);
+  border: none;
+  outline: none;
+  border-radius: _size(radius);
+  font-family: 'Roboto';
+  font-weight: 500;
+  padding: 0 _size(element) * 2;
+  cursor: pointer;
+  line-height: calc(#{_size(element)} * 2 + 2px);
+  align-self: left;
+  transition: background-color _duration(default) ease;
+
+  &:focus {
+    background-color: darken(_color(theme), 10%);
+  }
+
+  &:active {
+
+  }
+
+  &:hover {
+    background-color: darken(_color(theme), 10%);
+  }
+
+  &:disabled {
+    color: _color(inactive-color);
+    background-color: _color(inactive-bg);
+    cursor: default;
+
+    &:focus {
+      background-color: _color(inactive-bg);
+    }
+
+    &:hover {
+      background-color: _color(inactive-bg);
+    }
+  }
+
+  &.transparent {
+    color: _color(theme);
+    background-color: transparent;
+    padding: 0 calc(#{_size(element)} * 2  - 2px);
+    border: 2px solid _color(theme);
+    transition: color _duration(default) ease, border-color _duration(default) ease;
+
+    &:focus,
+    &:hover {
+      color: darken(_color(theme), 10%);
+      border-color: darken(_color(theme), 10%);
+    }
+  }
+}
+
+button.cancel,
+input[type="reset"] {
+  background-color: lighten(_color(theme), 20%);
+
+  &:hover {
+    background-color: _color(theme);
+  }
+
+  &:focus {
+    background-color: _color(theme);
+  }
+
+  &.transparent {
+    color: lighten(_color(theme), 20%);
+    background-color: transparent;
+    border: 2px solid lighten(_color(theme), 20%);
+
+    &:hover {
+      color: _color(theme);
+      border-color: _color(theme);
+    }
+
+    &:focus {
+      color: _color(theme);
+      border-color: _color(theme);
+    }
+  }
+}
+
+button.default,
+input[type="submit"] {
+  background-color: _color(accent);
+
+  &:hover {
+    background-color: darken(_color(accent), 10%);
+  }
+
+  &:focus {
+    background-color: darken(_color(accent), 10%);
+  }
+
+  &.transparent {
+    color: _color(accent);
+    background-color: transparent;
+    border: 2px solid _color(accent);
+
+    &:hover {
+      color: darken(_color(accent), 10%);
+      border-color: darken(_color(accent), 10%);
+    }
+
+    &:focus {
+      color: darken(_color(accent), 10%);
+      border-color: darken(_color(accent), 10%);
+    }
+  }
+}

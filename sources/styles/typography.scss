@@ -1,0 +1,15 @@
+blockquote {
+  margin: 0;
+  padding-left: _size(padding);
+  border-left: 5px solid _color(accent);
+}
+
+code {
+  font-family: 'Roboto Mono';
+  background-color: _color(dark-bg);
+  padding: _size(padding);
+
+  pre {
+    margin: 0;
+  }
+}
